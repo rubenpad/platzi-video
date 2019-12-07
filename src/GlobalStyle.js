@@ -1,6 +1,7 @@
 import { css, createGlobalStyle } from 'styled-components';
 
 const colors = {
+  lila: '#8f57fd',
   light: '#ffffff',
   dark: '#000000',
   border: 'rgba(0, 0, 0, 0.09)',
@@ -34,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
-  *, *:before, *:after { box-sizing: border-box; }
+  *:before, *:after { box-sizing: border-box; }
 
   button {
     background: transparent;
@@ -43,10 +44,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    width: 100%;
-  }
-
-  #app {
     width: 100%;
   }
 `;
