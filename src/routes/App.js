@@ -1,16 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { GlobalStyle } from '../GlobalStyle';
-import Header from '../components/Header';
-import Search from '../components/Search';
+import Home from '../containers/Home';
+import Login from '../containers/Login';
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <Header />
-      <Search />
-    </>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 

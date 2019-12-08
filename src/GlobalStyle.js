@@ -1,10 +1,10 @@
 import { css, createGlobalStyle } from 'styled-components';
 
 const colors = {
-  lila: '#8f57fd',
+  primary: '#8f57fd',
+  secondary: '#21c08d',
   light: '#ffffff',
-  dark: '#000000',
-  border: 'rgba(0, 0, 0, 0.09)',
+  semi: '#cccccc',
 };
 
 const size = {
@@ -24,27 +24,48 @@ const above = Object.keys(size).reduce((acc, label) => {
 }, {});
 
 const GlobalStyle = createGlobalStyle`
-  * {
-    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-    
+  * {    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+  }
+
+  *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
     font-family: 'Muli', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
     'Open Sans', 'Helvetica Neue', sans-serif;
+    direction: ltr;
   }
 
-  *:before, *:after { box-sizing: border-box; }
+  ul { 
+    list-style: none; 
+  }
+
+  h1, h2, h3 { 
+    color: #fff; 
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    
+  }
 
   button {
     background: transparent;
     border: 0;
     outline: 0;
-  }
-
-  body {
-    width: 100%;
   }
 `;
 
