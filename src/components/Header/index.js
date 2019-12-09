@@ -8,7 +8,7 @@ const Header = () => {
     <Wrapper>
       <Content>
         <Logo src={logo} alt="PlatziVideo Logo" />
-        <AuthButton href="/login">Sign In</AuthButton>
+        <AuthButton href="/login">Log in</AuthButton>
       </Content>
     </Wrapper>
   );

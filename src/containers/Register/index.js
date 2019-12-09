@@ -9,60 +9,62 @@ import {
   Form,
   Input,
   Button,
-  CheckBox,
   Register,
   Option,
   Line,
 } from './styles';
 
 const Login = () => {
+  const firstName = useInputValue('');
+  const lastName = useInputValue('');
   const email = useInputValue('');
   const password = useInputValue('');
-  const remember = useInputValue('checked');
 
   return (
     <Wrapper>
       <Container>
         <Option>
           <img src={googleIcon} alt="Google Icon" />
-          <span>Login with Google</span>
+          <span>Continue with Google</span>
         </Option>
         <Option>
           <img src={twitterIcon} alt="Google Icon" />
-          <span>Login with Twitter</span>
+          <span>Continue with Twitter</span>
         </Option>
         <Line>
           <span>or</span>
         </Line>
         <Form>
           <Input
+            type="text"
+            placeholder="First name"
+            value={firstName.value}
+            onChange={firstName.onChange}
+          />
+          <Input
+            type="text"
+            placeholder="Last name"
+            value={lastName.value}
+            onChange={lastName.onChange}
+          />
+          <Input
             type="email"
-            placeholder="Email Address"
+            placeholder="Email address"
             value={email.value}
             onChange={email.onChange}
           />
           <Input
             type="password"
-            placeholder="Password"
+            placeholder="Create a password"
             value={password.value}
             onChange={password.onChange}
           />
-          <CheckBox>
-            <input
-              type="checkbox"
-              name="remember"
-              value={remember.value}
-              onChange={remember.onChange}
-            />
-            <span>Remember me</span>
-            <a href="/reset">Forgot password?</a>
-          </CheckBox>
-          <Button type="submit">Log In</Button>
+          <Button type="submit">Sing up</Button>
         </Form>
       </Container>
       <Register>
-        <span>Don&#39;t have an account</span>
-        <a href="/signup">Sing up</a>
+        <span>Already have an account?</span>
+        <a href="/">Log in</a>
       </Register>
     </Wrapper>
   );

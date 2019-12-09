@@ -27,6 +27,6 @@ export const AuthButton = styled.a`
   background-color: ${colors.primary};
   line-height: normal;
   padding: 7px 17px;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 1rem;
 `;

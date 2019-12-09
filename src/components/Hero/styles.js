@@ -34,25 +34,3 @@ export const Subtitle = styled.h2`
   font-weight: normal;
   color: #000;
 `;
-
-export const Cta = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const TryButton = styled.a`
-  padding: 14px 34px;
-  display: flex;
-  align-items: center;
-  background: ${colors.primary};
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-size: 1.625rem;
-  color: #000;
-
-  span {
-    padding-right: 10px;
-  }
-`;

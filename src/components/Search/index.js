@@ -5,7 +5,7 @@ import { SearchWrapper, Title, Input } from './styles';
 const Search = () => {
   return (
     <SearchWrapper>
-      <Title>Watch movies anywhere</Title>
+      <Title>Search your favorite movie or video</Title>
       <Input type="text" placeholder="Search..." />
     </SearchWrapper>
   );

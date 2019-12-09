@@ -37,11 +37,10 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-
+    scroll-behavior: smooth;
     font-family: 'Muli', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
     'Open Sans', 'Helvetica Neue', sans-serif;
-    direction: ltr;
   }
 
   ul { 
