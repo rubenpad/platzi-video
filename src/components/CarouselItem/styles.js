@@ -56,17 +56,14 @@ export const Detail = styled.div`
 `;
 
 export const Action = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: 1rem;
   img {
-    width: 28px;
+    width: 24px;
     margin-right: 8px;
     transition: opacity 0.5s ease;
 
     &:hover {
+      transform: scale(1.1);
       opacity: 0.9;
     }
   }

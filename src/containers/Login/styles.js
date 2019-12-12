@@ -27,6 +27,7 @@ export const Line = styled.div`
   text-align: center;
   position: relative;
   margin-bottom: 16px;
+  font-size: 1.4rem;
 
   span::before {
     width: 45%;
@@ -94,6 +95,11 @@ export const CheckBox = styled.div`
   align-items: center;
   position: relative;
   font-size: 16px;
+
+  input {
+    cursor: pointer;
+  }
+
   span {
     padding-left: 6px;
   }

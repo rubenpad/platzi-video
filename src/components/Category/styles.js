@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  margin-top: 2rem;
   width: 100%;
 `;
 
 export const Title = styled.div`
   padding-left: 28px;
   h2 {
+    font-size: 2rem;
     color: #000;
   }
 `;

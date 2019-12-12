@@ -22,7 +22,7 @@ export const Container = styled.div`
       }
 
       &:hover ~ ${Item} {
-        transform: translate3d(100px, 0, 0);
+        transform: translate3d(120px, 0, 0);
       }
     }
   }

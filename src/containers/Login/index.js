@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { loginRequest } from '../../actions';
 import useInputValue from '../../hooks/useInputValue';
 
 import googleIcon from '../../assets/google-icon.svg';
@@ -15,10 +18,22 @@ import {
   Line,
 } from './styles';
 
-const Login = () => {
-  const email = useInputValue('');
-  const password = useInputValue('');
+const Login = (props) => {
+  const [form, setForm] = React.useState({ email: '' });
   const remember = useInputValue('checked');
+
+  const handleChange = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.loginRequest(form);
+    props.history.push('/');
+  };
 
   return (
     <Wrapper>
@@ -34,18 +49,19 @@ const Login = () => {
         <Line>
           <span>or</span>
         </Line>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input
+            name="email"
             type="email"
             placeholder="Email Address"
-            value={email.value}
-            onChange={email.onChange}
+            value={form.email}
+            onChange={handleChange}
           />
           <Input
+            name="password"
             type="password"
             placeholder="Password"
-            value={password.value}
-            onChange={password.onChange}
+            onChange={handleChange}
           />
           <CheckBox>
             <input
@@ -68,4 +84,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapDispatchToProps = {
+  loginRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Login);

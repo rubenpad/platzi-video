@@ -1,11 +1,11 @@
 import React from 'react';
 import { Wrapper, Title, Row } from './styles';
 
-const Category = ({ children }) => {
+const Category = ({ children, title }) => {
   return (
     <Wrapper>
       <Title>
-        <h2>Category Title</h2>
+        <h2>{title}</h2>
       </Title>
       <Row>{children}</Row>
     </Wrapper>

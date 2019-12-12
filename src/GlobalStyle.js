@@ -35,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    font-size: 10px;
+  }
+
   body {
     @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
     scroll-behavior: smooth;

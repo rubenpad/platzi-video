@@ -1,73 +1,89 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import { Container } from './styles';
-
-import Header from '../../components/Header';
-import Hero from '../../components/Hero';
+import Search from '../../components/Search';
 import Category from '../../components/Category';
 import Carousel from '../../components/Carousel';
 import CarouselItem from '../../components/CarouselItem';
 
-import cover from '../../assets/cover.jpg';
-
-const Home = () => {
+const Home = ({ library, trends, originals }) => {
   return (
-    <Container>
-      <Header />
-      <Hero />
-      <Category>
-        <Carousel>
-          <CarouselItem
-            title="Movie Title"
-            cover={cover}
-            year="2019"
-            contentRating="16+"
-            duration="145"
-          />
+    <>
+      <Search />
+      {library.length > 0 && (
+        <Category title="Library">
+          <Carousel>
+            {library.map((item) => {
+              console.log(item);
+              const { id, title, year, cover, contentRating, duration } = item;
+              return (
+                <CarouselItem
+                  isLibrary
+                  key={id}
+                  id={id}
+                  title={title}
+                  year={year}
+                  cover={cover}
+                  contentRating={contentRating}
+                  duration={duration}
+                />
+              );
+            })}
+          </Carousel>
+        </Category>
+      )}
 
-          <CarouselItem
-            title="Movie Title"
-            cover={cover}
-            year="2019"
-            contentRating="16+"
-            duration="145"
-          />
+      {trends.length > 0 && (
+        <Category title="Trends">
+          <Carousel>
+            {trends.map((item) => {
+              const { id, title, year, cover, contentRating, duration } = item;
+              return (
+                <CarouselItem
+                  key={id}
+                  id={id}
+                  title={title}
+                  year={year}
+                  cover={cover}
+                  contentRating={contentRating}
+                  duration={duration}
+                />
+              );
+            })}
+          </Carousel>
+        </Category>
+      )}
 
-          <CarouselItem
-            title="Movie Title"
-            cover={cover}
-            year="2019"
-            contentRating="16+"
-            duration="145"
-          />
-
-          <CarouselItem
-            title="Movie Title"
-            cover={cover}
-            year="2019"
-            contentRating="16+"
-            duration="145"
-          />
-
-          <CarouselItem
-            title="Movie Title"
-            cover={cover}
-            year="2019"
-            contentRating="16+"
-            duration="145"
-          />
-
-          <CarouselItem
-            title="Movie Title"
-            cover={cover}
-            year="2019"
-            contentRating="16+"
-            duration="145"
-          />
-        </Carousel>
-      </Category>
-    </Container>
+      {originals.length > 0 && (
+        <Category title="Originals">
+          <Carousel>
+            {originals.map((item) => {
+              const { id, title, year, cover, contentRating, duration } = item;
+              return (
+                <CarouselItem
+                  key={id}
+                  id={id}
+                  title={title}
+                  year={year}
+                  cover={cover}
+                  contentRating={contentRating}
+                  duration={duration}
+                />
+              );
+            })}
+          </Carousel>
+        </Category>
+      )}
+    </>
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    library: state.library,
+    trends: state.trends,
+    originals: state.originals,
+  };
+};
+
+export default connect(mapStateToProps, null)(Home);
