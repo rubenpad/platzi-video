@@ -32,3 +32,10 @@ export function signupRequest(payload) {
     payload,
   };
 }
+
+export function getVideo(payload) {
+  return {
+    type: 'GET_VIDEO',
+    payload,
+  };
+}

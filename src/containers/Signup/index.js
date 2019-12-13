@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { signupRequest } from '../../actions';
 import googleIcon from '../../assets/google-icon.svg';
 import twitterIcon from '../../assets/twitter-icon.svg';
+import backIcon from '../../assets/back-icon.png';
 import {
   Wrapper,
   Container,
@@ -13,6 +14,7 @@ import {
   Register,
   Option,
   Line,
+  SLink,
 } from './styles';
 
 const Signup = (props) => {
@@ -38,6 +40,9 @@ const Signup = (props) => {
 
   return (
     <Wrapper>
+      <SLink to="/">
+        <img src={backIcon} alt="Back button" />
+      </SLink>
       <Container>
         <Option>
           <img src={googleIcon} alt="Google Icon" />
@@ -84,7 +89,7 @@ const Signup = (props) => {
       </Container>
       <Register>
         <span>Already have an account?</span>
-        <a href="/">Log in</a>
+        <a href="/login">Log in</a>
       </Register>
     </Wrapper>
   );

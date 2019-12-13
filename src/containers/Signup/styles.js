@@ -1,6 +1,20 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { colors } from '../../GlobalStyle';
 import loginBackground from '../../assets/login-background.svg';
+
+export const SLink = styled(Link)`
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  img {
+    width: 38px;
+    height: 38px;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+`;
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -27,6 +41,7 @@ export const Line = styled.div`
   text-align: center;
   position: relative;
   margin-bottom: 16px;
+  font-size: 1.4rem;
 
   span::before {
     width: 45%;

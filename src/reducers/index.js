@@ -35,6 +35,15 @@ function reducer(state, action) {
         user: action.payload,
       };
 
+    case 'GET_VIDEO':
+      return {
+        ...state,
+        playing:
+          state.trends
+            .concat(state.originals)
+            .find((item) => item.id === Number(action.payload)) || [],
+      };
+
     default:
       return state;
   }

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import { loginRequest } from '../../actions';
 import useInputValue from '../../hooks/useInputValue';
-
 import googleIcon from '../../assets/google-icon.svg';
 import twitterIcon from '../../assets/twitter-icon.svg';
+import backIcon from '../../assets/back-icon.png';
 import {
   Wrapper,
   Container,
@@ -16,9 +16,10 @@ import {
   Register,
   Option,
   Line,
+  SLink,
 } from './styles';
 
-const Login = (props) => {
+const Signin = (props) => {
   const [form, setForm] = React.useState({ email: '' });
   const remember = useInputValue('checked');
 
@@ -37,6 +38,9 @@ const Login = (props) => {
 
   return (
     <Wrapper>
+      <SLink to="/">
+        <img src={backIcon} alt="Back button" />
+      </SLink>
       <Container>
         <Option>
           <img src={googleIcon} alt="Google Icon" />
@@ -88,4 +92,4 @@ const mapDispatchToProps = {
   loginRequest,
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Signin);

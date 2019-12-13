@@ -20,7 +20,7 @@ const Header = (props) => {
       ) : (
         <Links>
           <StyledLink to="/login" main="true">
-            Log in
+            Sign in
           </StyledLink>
           <StyledLink to="/signup">Sign up</StyledLink>
         </Links>
