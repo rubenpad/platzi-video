@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Avatar from '../Avatar';
 import logo from '../../assets/logo-platzi-video.png';
-import { Wrapper, Logo, StyledLink } from './styles';
+import { Wrapper, Logo, StyledLink, Links } from './styles';
 
 const Header = (props) => {
   const { user } = props;
@@ -18,7 +18,12 @@ const Header = (props) => {
       {hasUser ? (
         <Avatar email={user.email} />
       ) : (
-        <StyledLink to="/login">Log in</StyledLink>
+        <Links>
+          <StyledLink to="/login" main="true">
+            Log in
+          </StyledLink>
+          <StyledLink to="/signup">Sign up</StyledLink>
+        </Links>
       )}
     </Wrapper>
   );

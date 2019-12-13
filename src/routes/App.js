@@ -5,7 +5,7 @@ import { GlobalStyle } from '../GlobalStyle';
 import Layout from '../components/Layout';
 import Home from '../containers/Home';
 import Login from '../containers/Login';
-import Register from '../containers/Register';
+import Signup from '../containers/Signup';
 import NotFound from '../components/NotFound';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Register} />
+          <Route exact path="/signup" component={Signup} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

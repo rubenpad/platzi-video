@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../GlobalStyle';
 
 export const Menu = styled.ul`
   height: 90px;
@@ -34,6 +33,7 @@ export const Menu = styled.ul`
 export const Image = styled.img`
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   object-fit: cover;
 `;
 

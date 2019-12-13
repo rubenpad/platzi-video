@@ -18,3 +18,17 @@ export function loginRequest(payload) {
     payload,
   };
 }
+
+export function logoutRequest(payload) {
+  return {
+    type: 'LOGOUT_REQUEST',
+    payload,
+  };
+}
+
+export function signupRequest(payload) {
+  return {
+    type: 'SIGNUP_REQUEST',
+    payload,
+  };
+}

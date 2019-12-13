@@ -1,6 +1,7 @@
 import React from 'react';
-import useInputValue from '../../hooks/useInputValue';
+import { connect } from 'react-redux';
 
+import { signupRequest } from '../../actions';
 import googleIcon from '../../assets/google-icon.svg';
 import twitterIcon from '../../assets/twitter-icon.svg';
 import {
@@ -14,11 +15,26 @@ import {
   Line,
 } from './styles';
 
-const Login = () => {
-  const firstName = useInputValue('');
-  const lastName = useInputValue('');
-  const email = useInputValue('');
-  const password = useInputValue('');
+const Signup = (props) => {
+  const [form, setForm] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.signupRequest(form);
+    props.history.push('/');
+  };
 
   return (
     <Wrapper>
@@ -34,30 +50,34 @@ const Login = () => {
         <Line>
           <span>or</span>
         </Line>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input
+            name="firstName"
             type="text"
             placeholder="First name"
-            value={firstName.value}
-            onChange={firstName.onChange}
+            value={form.firstName}
+            onChange={handleChange}
           />
           <Input
+            name="lastName"
             type="text"
             placeholder="Last name"
-            value={lastName.value}
-            onChange={lastName.onChange}
+            value={form.lastName}
+            onChange={handleChange}
           />
           <Input
+            name="email"
             type="email"
             placeholder="Email address"
-            value={email.value}
-            onChange={email.onChange}
+            value={form.email}
+            onChange={handleChange}
           />
           <Input
+            name="password"
             type="password"
             placeholder="Create a password"
-            value={password.value}
-            onChange={password.onChange}
+            value={form.password}
+            onChange={handleChange}
           />
           <Button type="submit">Sing up</Button>
         </Form>
@@ -70,4 +90,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapDispatchToProps = {
+  signupRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Signup);
