@@ -4,7 +4,8 @@ export const Back = styled.div`
   position: fixed;
   top: 25px;
   left: 25px;
-  font-size: 12px;
+  color: #fff;
+  z-index: 1;
 `;
 
 export const Button = styled.button`
@@ -12,6 +13,7 @@ export const Button = styled.button`
   color: white;
   background: rgba(0, 0, 0, 0.3);
   padding: 5px;
+  font-size: 18px;
   border-radius: 5px;
   border: 0;
   outline: 0;

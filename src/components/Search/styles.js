@@ -9,6 +9,7 @@ export const SearchWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
 `;
 
 export const Title = styled.h1`

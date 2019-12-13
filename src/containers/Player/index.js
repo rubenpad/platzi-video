@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { getVideo } from '../../actions';
@@ -17,13 +18,21 @@ const Player = (props) => {
   return isPlaying ? (
     <div>
       <Back>
-        <Button type="button">Back</Button>
+        <Button type="button" onClick={() => props.history.goBack()}>
+          Back
+        </Button>
       </Back>
       <Video src={playing.source} type="video/mp4" controls autoPlay />
     </div>
   ) : (
     <NotFound />
   );
+};
+
+Player.propTypes = {
+  id: PropTypes.number,
+  playing: PropTypes.object.isRequired,
+  getVideo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

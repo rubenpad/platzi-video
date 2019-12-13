@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setFavorite, deleteFavorite } from '../../actions';
@@ -48,6 +49,16 @@ const CarouselItem = (props) => {
       </Detail>
     </Item>
   );
+};
+
+CarouselItem.propTypes = {
+  isLibrary: PropTypes.bool,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  cover: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  contentRating: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
 };
 
 const mapDispatchToProps = {

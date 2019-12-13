@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { loginRequest } from '../../actions';
@@ -86,6 +87,10 @@ const Signin = (props) => {
       </Register>
     </Wrapper>
   );
+};
+
+Signin.propTypes = {
+  loginRequest: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Header from '../../components/Header';
@@ -80,8 +81,15 @@ const Home = ({ library, trends, originals }) => {
   );
 };
 
+Home.propTypes = {
+  library: PropTypes.array,
+  trends: PropTypes.array,
+  originals: PropTypes.array,
+};
+
 const mapStateToProps = (state) => {
   return {
+    search: state.search,
     library: state.library,
     trends: state.trends,
     originals: state.originals,
