@@ -1,2 +1,2 @@
-# youtify
+# PlatziVideo
 Clone 🔮
