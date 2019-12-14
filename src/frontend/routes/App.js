@@ -14,7 +14,7 @@ const App = () => {
       <GlobalStyle />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Signin} />
+        <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/player/:id" component={Player} />
         <Route component={NotFound} />

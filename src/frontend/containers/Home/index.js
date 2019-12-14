@@ -17,7 +17,6 @@ const Home = ({ library, trends, originals }) => {
         <Category title="Library">
           <Carousel>
             {library.map((item) => {
-              console.log(item);
               const { id, title, year, cover, contentRating, duration } = item;
               return (
                 <CarouselItem

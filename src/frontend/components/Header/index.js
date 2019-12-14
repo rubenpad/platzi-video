@@ -20,7 +20,7 @@ const Header = (props) => {
         <Avatar email={user.email} />
       ) : (
         <Links>
-          <StyledLink to="/login" main="true">
+          <StyledLink to="/signin" main="true">
             Sign in
           </StyledLink>
           <StyledLink to="/signup">Sign up</StyledLink>

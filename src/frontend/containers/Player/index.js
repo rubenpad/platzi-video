@@ -7,6 +7,7 @@ import NotFound from '../../components/NotFound';
 import { Back, Button, Video } from './styles';
 
 const Player = (props) => {
+  // eslint-disable-next-line react/destructuring-assignment
   const { id } = props.match.params;
   const { playing } = props;
   const isPlaying = Object.keys(playing).length > 0;
