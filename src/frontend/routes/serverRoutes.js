@@ -21,7 +21,7 @@ const serverRoutes = [
     exact: true,
   },
   {
-    path: '/player',
+    path: '/player/:id',
     component: Player,
     exact: true,
   },

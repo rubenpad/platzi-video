@@ -1,9 +1,11 @@
+import main from './routes/main';
+
 const express = require('express');
 const debug = require('debug')('app:server');
-
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+
 const webpackConfig = require('../../webpack.config.js');
 const config = require('./config/index.js');
 
@@ -27,24 +29,7 @@ if (config.dev) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.get('*', (req, res) => {
-  res.send(`
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Platzi Video | Watch videos and movies anytime.</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="assets/app.js" type="text/javascript"></script>
-    <script src="assets/vendor.js" type="text/javascript"></script>
-  </body>
-  </html>
-  `);
-});
+app.get('*', main);
 
 app.listen(config.port, (err) => {
   if (err) debug(error);

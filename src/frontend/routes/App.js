@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { GlobalStyle } from '../GlobalStyle';
 import Home from '../containers/Home';
 import Signin from '../containers/Signin';
 import Signup from '../containers/Signup';
 import NotFound from '../components/NotFound';
 import Player from '../containers/Player';
+import { GlobalStyle } from '../GlobalStyle';
 
 const App = () => {
   return (

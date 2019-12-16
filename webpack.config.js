@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -27,7 +26,9 @@ module.exports = {
           test(module, chunks) {
             const name = module.nameForCondition && module.nameForCondition();
             return chunks.some(
-              (chunk) => chunk.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name));
+              (chunk) =>
+                chunk.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name)
+            );
           },
         },
       },
@@ -51,23 +52,17 @@ module.exports = {
         },
       },
       {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-        },
-      },
-      {
         test: /\.(svg|png|jpg|gif|mp4)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: 'assets/[hash].[ext]',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[hash].[ext]',
+            },
           },
-        },
+        ],
       },
     ],
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };
