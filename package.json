@@ -7,10 +7,9 @@
   "author": "Ruben Padilla <rubbenpad2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "server": "json-server db.json",
-    "start": "webpack-dev-server --open --hot --mode development",
-    "dev": "DEBUG=app:* nodemon src/server/index.js --exact babel-node",
-    "build": "webpack --mode production"
+    "build": "webpack-cli --config webpack.config.js --colors",
+    "start:prod": "node src/server/index.js",
+    "start:dev": "DEBUG=app:* nodemon src/server/index.js --exact babel-node"
   },
   "dependencies": {
     "@babel/register": "7.7.4",
@@ -18,6 +17,7 @@
     "debug": "4.1.1",
     "dotenv": "8.2.0",
     "express": "4.17.1",
+    "helmet": "^3.21.2",
     "history": "4.10.1",
     "image-webpack-loader": "6.0.0",
     "md5": "2.2.1",
@@ -47,6 +47,7 @@
     "babel-eslint": "10.0.3",
     "babel-loader": "8.0.6",
     "babel-plugin-styled-components": "1.10.6",
+    "compression-webpack-plugin": "3.0.1",
     "core-js": "3",
     "eslint": "6.7.2",
     "eslint-config-airbnb": "18.0.1",
@@ -59,6 +60,7 @@
     "html-loader": "0.5.5",
     "html-webpack-plugin": "3.2.0",
     "react-hot-loader": "4.12.18",
+    "terser-webpack-plugin": "2.3.1",
     "webpack-cli": "3.3.10",
     "webpack-dev-server": "3.9.0"
   }

@@ -31,4 +31,4 @@ function main(req, res, next) {
   }
 }
 
-export default main;
+module.exports = main;

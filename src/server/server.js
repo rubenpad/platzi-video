@@ -1,19 +1,18 @@
-import main from './routes/main';
-
 const express = require('express');
 const debug = require('debug')('app:server');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const helmet = require('helmet');
 
 const webpackConfig = require('../../webpack.config.js');
 const config = require('./config/index.js');
+const main = require('./routes/main.js');
 
 const app = express();
+app.use(express.static(`${__dirname}/public`));
 
-app.use(express.json());
-
-if (config.dev) {
+if (config.mode === 'development') {
   debug('Loading on development mode.');
 
   const compiler = webpack(webpackConfig);
@@ -27,6 +26,10 @@ if (config.dev) {
   };
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
+} else {
+  app.use(helmet());
+  app.use(helmet.permittedCrossDomainPolicies());
+  app.disable('x-powered-by');
 }
 
 app.get('*', main);
