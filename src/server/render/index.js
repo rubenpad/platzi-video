@@ -1,3 +1,18 @@
+import getManifest from '../getManifest';
+
+const config = require('../config/env');
+
+let files = {};
+
+if (config.mode === 'production') {
+  files = getManifest();
+} else {
+  files = {
+    'main.js': 'static/js/bundle.js',
+    'vendors.js': 'static/js/vendors.js',
+  };
+}
+
 function render(body, styles, preloadedState) {
   return `
   <!DOCTYPE html>
@@ -16,8 +31,8 @@ function render(body, styles, preloadedState) {
       // http://redux.js.org/recipes/ServerRendering.html#security-considerations
       window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')};
       </script>
-    <script src="assets/app.js" type="text/javascript"></script>
-    <script src="assets/vendor.js" type="text/javascript"></script>
+    <script src="${files['main.js']}" type="text/javascript"></script>
+    <script src="${files['vendors.js']}" type="text/javascript"></script>
   </body>
   </html>
   `;

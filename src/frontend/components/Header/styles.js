@@ -44,8 +44,7 @@ export const StyledLink = styled(Link)`
     transform: translate(0, -3px);
   }
 
-  ${(props) => props.main &&
-    css`
+  ${(props) => props.main && css`
       border: none;
       color: white;
       background: ${colors.primary};

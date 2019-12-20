@@ -6,7 +6,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const helmet = require('helmet');
 
 const webpackConfig = require('../../webpack.config.js');
-const config = require('./config/index.js');
+const config = require('./config/env');
 const main = require('./routes/main.js');
 
 const app = express();
@@ -27,6 +27,7 @@ if (config.mode === 'development') {
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
 } else {
+  console.log('Loading production mode');
   app.use(helmet());
   app.use(helmet.permittedCrossDomainPolicies());
   app.disable('x-powered-by');
@@ -36,5 +37,5 @@ app.get('*', main);
 
 app.listen(config.port, (err) => {
   if (err) debug(error);
-  debug(`Server running on 'http://localhost:${config.port}/`);
+  console.log(`Server running on 'http://localhost:${config.port}/`);
 });

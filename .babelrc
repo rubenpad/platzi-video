@@ -7,8 +7,9 @@
           "babel-plugin-styled-components",
           {
             "ssr": true,
-            "displayName": true,
-            "preprocess": false
+            "displayName": false,
+            "transpileTemplateLiterals": false,
+            "minify": false
           }
         ],
         "@babel/plugin-proposal-class-properties",
