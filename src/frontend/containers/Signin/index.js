@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 
 import { loginRequest } from '../../actions';
 import useInputValue from '../../hooks/useInputValue';
-import googleIcon from '../../assets/google-icon.svg';
-import twitterIcon from '../../assets/twitter-icon.svg';
-import backIcon from '../../assets/back-icon.png';
 import {
   Wrapper,
   Container,
@@ -17,7 +14,10 @@ import {
   Register,
   Option,
   Line,
-  SLink,
+  StyledLink,
+  GoogleButton,
+  TwitterButton,
+  BackButton,
 } from './styles';
 
 const Signin = (props) => {
@@ -39,16 +39,16 @@ const Signin = (props) => {
 
   return (
     <Wrapper>
-      <SLink to="/">
-        <img src={backIcon} alt="Back button" />
-      </SLink>
+      <StyledLink to="/">
+        <BackButton />
+      </StyledLink>
       <Container>
         <Option>
-          <img src={googleIcon} alt="Google Icon" />
+          <GoogleButton />
           <span>Login with Google</span>
         </Option>
         <Option>
-          <img src={twitterIcon} alt="Google Icon" />
+          <TwitterButton />
           <span>Login with Twitter</span>
         </Option>
         <Line>

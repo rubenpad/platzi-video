@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { getVideo } from '../../actions';
 import NotFound from '../../components/NotFound';
-import { Back, Button, Video } from './styles';
+import { BackButton, Video } from './styles';
 
 const Player = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
@@ -18,11 +18,7 @@ const Player = (props) => {
 
   return isPlaying ? (
     <div>
-      <Back>
-        <Button type="button" onClick={() => props.history.goBack()}>
-          Back
-        </Button>
-      </Back>
+      <BackButton onClick={() => props.history.goBack()} />
       <Video src={playing.source} type="video/mp4" controls autoPlay />
     </div>
   ) : (

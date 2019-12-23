@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { signupRequest } from '../../actions';
-import googleIcon from '../../assets/google-icon.svg';
-import twitterIcon from '../../assets/twitter-icon.svg';
-import backIcon from '../../assets/back-icon.png';
 import {
   Wrapper,
   Container,
@@ -15,7 +12,10 @@ import {
   Register,
   Option,
   Line,
-  SLink,
+  StyledLink,
+  BackButton,
+  GoogleButton,
+  TwitterButton,
 } from './styles';
 
 const Signup = (props) => {
@@ -41,16 +41,16 @@ const Signup = (props) => {
 
   return (
     <Wrapper>
-      <SLink to="/">
-        <img src={backIcon} alt="Back button" />
-      </SLink>
+      <StyledLink to="/">
+        <BackButton />
+      </StyledLink>
       <Container>
         <Option>
-          <img src={googleIcon} alt="Google Icon" />
+          <GoogleButton />
           <span>Continue with Google</span>
         </Option>
         <Option>
-          <img src={twitterIcon} alt="Google Icon" />
+          <TwitterButton />
           <span>Continue with Twitter</span>
         </Option>
         <Line>

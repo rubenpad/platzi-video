@@ -24,6 +24,10 @@ const above = Object.keys(size).reduce((acc, label) => {
 }, {});
 
 const GlobalStyle = createGlobalStyle`
+  ${css`
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+  `}
+
   * {    
     margin: 0;
     padding: 0;
@@ -36,11 +40,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
     scroll-behavior: smooth;
-    font-family: 'Muli', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
-    'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-size: 10px;
   }
 

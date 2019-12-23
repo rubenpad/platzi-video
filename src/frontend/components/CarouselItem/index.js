@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setFavorite, deleteFavorite } from '../../actions';
 
-import { Item, Cover, Detail, Action } from './styles';
-import playIcon from '../../assets/play-icon.png';
-import addIcon from '../../assets/plus-icon.svg';
-import deleteIcon from '../../assets/delete-icon.svg';
+import {
+  Item,
+  Cover,
+  Detail,
+  Action,
+  AddButton,
+  PlayButton,
+  CheckButton,
+} from './styles';
 
 const CarouselItem = (props) => {
   const { isLibrary, id, title, cover, year, contentRating, duration } = props;
@@ -32,16 +37,12 @@ const CarouselItem = (props) => {
       <Detail>
         <Action>
           <Link to={`/player/${id}`}>
-            <img src={playIcon} alt="Play Button" />
+            <PlayButton />
           </Link>
           {!isLibrary ? (
-            <img src={addIcon} alt="Add Button" onClick={handleSetFavorite} />
+            <AddButton onClick={handleSetFavorite} />
           ) : (
-            <img
-              src={deleteIcon}
-              alt="Delete Button"
-              onClick={() => handleDeleteFavorite(id)}
-            />
+            <CheckButton onClick={() => handleDeleteFavorite(id)} />
           )}
         </Action>
         <h3>{title}</h3>

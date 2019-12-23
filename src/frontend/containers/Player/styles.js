@@ -1,22 +1,14 @@
 import styled from 'styled-components';
+import { FaArrowLeft } from 'react-icons/fa';
 
-export const Back = styled.div`
+export const BackButton = styled(FaArrowLeft)`
+  width: 32px;
+  height: 32px;
   position: fixed;
   top: 25px;
   left: 25px;
   color: #fff;
   z-index: 1;
-`;
-
-export const Button = styled.button`
-  text-decoration: none;
-  color: white;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 5px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: 0;
-  outline: 0;
   cursor: pointer;
 `;
 
@@ -28,10 +20,4 @@ export const Video = styled.video`
   position: absolute;
   top: 0;
   left: 0;
-
-  &:hover {
-    ${Back} {
-      display: block;
-    }
-  }
 `;

@@ -1,9 +1,23 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { FaArrowLeft, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { colors } from '../../GlobalStyle';
-import loginBackground from '../../assets/login-background.svg';
 
-export const SLink = styled(Link)`
+export const BackButton = styled(FaArrowLeft)`
+  width: 28px;
+  height: 28px;
+  color: #000;
+`;
+
+export const GoogleButton = styled(FaGoogle)`
+  margin-right: 8px;
+`;
+
+export const TwitterButton = styled(FaTwitter)`
+  margin-right: 8px;
+`;
+
+export const StyledLink = styled(Link)`
   position: absolute;
   top: 15px;
   left: 15px;
@@ -23,7 +37,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(${loginBackground}) no-repeat right, ${colors.primary};
   position: relative;
 `;
 
@@ -146,7 +159,7 @@ export const Register = styled.div`
   font-size: 16px;
   a {
     margin-left: 20px;
-    color: ${colors.light};
+    color: ${colors.primary};
     font-weight: bold;
 
     &:hover {

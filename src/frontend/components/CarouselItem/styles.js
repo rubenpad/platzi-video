@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaPlus, FaPlay, FaCheck } from 'react-icons/fa';
 
 const width = 250;
 const height = width / (16 / 9);
@@ -57,14 +58,40 @@ export const Detail = styled.div`
 
 export const Action = styled.div`
   margin-left: 1rem;
-  img {
-    width: 24px;
-    margin-right: 8px;
-    transition: opacity 0.5s ease;
+`;
 
-    &:hover {
-      transform: scale(1.1);
-      opacity: 0.9;
-    }
+export const AddButton = styled(FaPlus)`
+  width: 16px;
+  margin-right: 5px;
+  color: #fff;
+  transition: opacity 0.5s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+`;
+
+export const PlayButton = styled(FaPlay)`
+  width: 16px;
+  margin-right: 8px;
+  color: #fff;
+  transition: opacity 0.5s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+`;
+
+export const CheckButton = styled(FaCheck)`
+  width: 16px;
+  margin-right: 8px;
+  color: #fff;
+  transition: opacity 0.5s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
   }
 `;
