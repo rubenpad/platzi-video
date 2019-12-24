@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const config = require('./src/server/config/env');
 
@@ -92,5 +93,6 @@ module.exports = {
     isEnvProduction && new webpack.HotModuleReplacementPlugin(),
     isEnvProduction && new CompressionPlugin({ test: /\.js$/, filename: '[path].gz' }),
     isEnvProduction && new ManifestPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };
