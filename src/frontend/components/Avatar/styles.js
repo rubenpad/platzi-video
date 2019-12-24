@@ -1,4 +1,13 @@
 import styled from 'styled-components';
+import { FaUserAlt, FaArrowLeft } from 'react-icons/fa';
+
+export const UserIcon = styled(FaUserAlt)`
+  margin-right: 5px;
+`;
+
+export const ExitIcon = styled(FaArrowLeft)`
+  margin-right: 5px;
+`;
 
 export const Menu = styled.ul`
   height: 90px;

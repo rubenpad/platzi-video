@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaUserAlt, FaArrowLeft } from 'react-icons/fa';
 import { connect } from 'react-redux';
 
 import { logoutRequest } from '../../actions';
 import gravatar from '../../utils/gravatar';
-import { Wrapper, Image, Menu } from './styles';
+import { Wrapper, Image, Menu, UserIcon, ExitIcon } from './styles';
 
 const Avatar = (props) => {
   const { email } = props;
@@ -19,11 +18,11 @@ const Avatar = (props) => {
       <Image src={gravatar(email)} alt="User Avatar" />
       <Menu>
         <li>
-          <FaUserAlt />
+          <UserIcon />
           Account
         </li>
         <li onClick={handleLogout}>
-          <FaArrowLeft />
+          <ExitIcon />
           Logout
         </li>
       </Menu>

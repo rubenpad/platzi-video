@@ -81,7 +81,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'static/media/[hash].[ext]',
+              name: 'assets/[hash].[ext]',
             },
           },
         ],
