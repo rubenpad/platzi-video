@@ -7,9 +7,12 @@ import NotFound from '../../components/NotFound';
 import { BackButton, Video } from './styles';
 
 const Player = (props) => {
-  // eslint-disable-next-line react/destructuring-assignment
-  const { id } = props.match.params;
-  const { playing } = props;
+  const {
+    playing,
+    params: {
+      match: { id },
+    },
+  } = props;
   const isPlaying = Object.keys(playing).length > 0;
 
   React.useEffect(() => {
