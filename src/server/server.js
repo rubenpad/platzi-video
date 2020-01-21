@@ -28,7 +28,7 @@ if (config.env === 'development') {
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
 } else {
-  console.log('Loading production mode');
+  console.log(chalk.greenBright('Loading production mode'));
   app.use(helmet());
   app.use(helmet.permittedCrossDomainPolicies());
   app.disable('x-powered-by');
