@@ -20,8 +20,8 @@ function main(req, res, next) {
           <StaticRouter location={req.url} context={{}}>
             {renderRoutes(serverRoutes)}
           </StaticRouter>
-        </Provider>,
-      ),
+        </Provider>
+      )
     );
     const styles = sheet.getStyleTags();
     const preloadedState = store.getState();

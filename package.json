@@ -7,13 +7,15 @@
   "author": "Ruben Padilla <rubbenpad2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack-cli --config webpack.config.js --colors",
+    "build": "NODE_ENV=production webpack",
     "start:prod": "node src/server/index.js",
-    "start:dev": "DEBUG=app:* nodemon src/server/index.js --exact babel-node"
+    "start:dev": "NODE_ENV=development webpack && node src/server/index.js",
+    "dev": "DEBUG=app:* nodemon src/server/index.js --exact babel-node"
   },
   "dependencies": {
     "@babel/register": "7.7.4",
     "asset-require-hook": "1.2.0",
+    "chalk": "3.0.0",
     "debug": "4.1.1",
     "dotenv": "8.2.0",
     "express": "4.17.1",

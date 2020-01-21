@@ -1,40 +1,31 @@
 const path = require('path');
-const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const config = require('./src/server/config/env');
+const { config } = require('./src/server/config');
 
-const isEnvProduction = config.mode === 'production';
+const isEnvProduction = config.env === 'production';
+const isEnvDevelopment = config.env === 'development';
 
 module.exports = {
-  mode: isEnvProduction ? 'production' : 'development',
-  devtool: isEnvProduction ? 'hidden-source-map' : 'cheap-source-map',
+  mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
   entry: './src/frontend/index.js',
   output: {
     path: isEnvProduction
-      ? path.join(process.cwd(), './src/server/public/') : '/',
+      ? path.join(process.cwd(), './src/server/public')
+      : isEnvDevelopment && '/',
     filename: isEnvProduction
-      ? 'static/js/[name].[hash].js'
-      : 'static/js/[name].js',
+      ? 'assets/[name].[hash].js'
+      : isEnvDevelopment && 'assets/[name].js',
     publicPath: '/',
-    chunkFilename: isEnvProduction
-      ? 'static/js/[hash].chunk.js'
-      : 'static/js/[name].chunk.js',
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
+  resolve: { extensions: ['.js'] },
   optimization: {
     minimize: isEnvProduction,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: { ecma: 8 },
-      }),
-    ],
+    minimizer: isEnvProduction ? [new TerserPlugin()] : [],
     splitChunks: {
-      chunks: 'all',
+      chunks: 'async',
       name: true,
       cacheGroups: {
         vendors: {
@@ -43,12 +34,16 @@ module.exports = {
           reuseExistingChunk: true,
           priority: 1,
           filename: isEnvProduction
-            ? 'static/vendor.[hash].js'
-            : 'static/vendor.js',
+            ? 'assets/vendor.[hash].js'
+            : isEnvDevelopment && 'assets/vendor.js',
           enforce: true,
           test(module, chunks) {
             const name = module.nameForCondition && module.nameForCondition();
-            return chunks.some((chunk) => chunk.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name));
+            return chunks.some((chunks) => {
+              return (
+                chunks.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name)
+              );
+            });
           },
         },
       },
@@ -57,7 +52,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jsx|js)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         enforce: 'pre',
         use: {
@@ -65,19 +60,14 @@ module.exports = {
         },
       },
       {
-        test: /\.(jsx|js)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-            cacheCompression: false,
-            compact: isEnvProduction,
-          },
         },
       },
       {
-        test: /\.(svg|png|jpg|gif|mp4)$/,
+        test: /\.(png|gif|jpg|svg)$/,
         use: [
           {
             loader: 'file-loader',
@@ -89,10 +79,12 @@ module.exports = {
       },
     ],
   },
+  devServer: { historyApiFallback: true },
   plugins: [
-    isEnvProduction && new webpack.HotModuleReplacementPlugin(),
-    isEnvProduction && new CompressionPlugin({ test: /\.js$/, filename: '[path].gz' }),
-    isEnvProduction && new ManifestPlugin(),
-    new CleanWebpackPlugin(),
+    isEnvProduction ? new CleanWebpackPlugin() : () => {},
+    isEnvProduction ? new ManifestPlugin() : () => {},
+    isEnvProduction
+      ? new CompressionPlugin({ test: /\.js/, filename: '[path].gz' })
+      : () => {},
   ],
 };

@@ -1,15 +1,15 @@
 import getManifest from '../getManifest';
 
-const config = require('../config/env');
+const { config } = require('../config');
 
 let files = {};
 
-if (config.mode === 'production') {
+if (config.env === 'production') {
   files = getManifest();
 } else {
   files = {
-    'main.js': 'static/js/bundle.js',
-    'vendors.js': 'static/js/vendors.js',
+    'main.js': 'assets/main.js',
+    'vendors.js': 'assets/vendor.js',
   };
 }
 
