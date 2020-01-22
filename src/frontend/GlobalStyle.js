@@ -24,9 +24,6 @@ const above = Object.keys(size).reduce((acc, label) => {
 }, {});
 
 const GlobalStyle = createGlobalStyle`
-  ${css`
-    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-  `}
 
   * {    
     margin: 0;

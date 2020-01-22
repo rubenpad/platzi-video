@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { loginRequest } from '../../actions';
-import useInputValue from '../../hooks/useInputValue';
+import { loginUser } from '../../actions'
+import useInputValue from '../../hooks/useInputValue'
 import {
   Wrapper,
   Container,
@@ -12,30 +12,25 @@ import {
   Button,
   CheckBox,
   Register,
-  Option,
-  Line,
   StyledLink,
-  GoogleButton,
-  TwitterButton,
   BackButton,
-} from './styles';
+} from './styles'
 
-const Signin = (props) => {
-  const [form, setForm] = React.useState({ email: '' });
-  const remember = useInputValue('checked');
+const Login = props => {
+  const [form, setForm] = React.useState({ email: '' })
+  const remember = useInputValue('checked')
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
-    });
-  };
+    })
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.loginRequest(form);
-    props.history.push('/');
-  };
+  const handleSubmit = event => {
+    event.preventDefault()
+    props.loginUser(form, '/')
+  }
 
   return (
     <Wrapper>
@@ -43,17 +38,6 @@ const Signin = (props) => {
         <BackButton />
       </StyledLink>
       <Container>
-        <Option>
-          <GoogleButton />
-          <span>Login with Google</span>
-        </Option>
-        <Option>
-          <TwitterButton />
-          <span>Login with Twitter</span>
-        </Option>
-        <Line>
-          <span>or</span>
-        </Line>
         <Form onSubmit={handleSubmit}>
           <Input
             name="email"
@@ -61,12 +45,14 @@ const Signin = (props) => {
             placeholder="Email Address"
             value={form.email}
             onChange={handleChange}
+            required
           />
           <Input
             name="password"
             type="password"
             placeholder="Password"
             onChange={handleChange}
+            required
           />
           <CheckBox>
             <input
@@ -86,15 +72,15 @@ const Signin = (props) => {
         <a href="/signup">Sing up</a>
       </Register>
     </Wrapper>
-  );
-};
+  )
+}
 
-Signin.propTypes = {
-  loginRequest: PropTypes.func.isRequired,
-};
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+}
 
 const mapDispatchToProps = {
-  loginRequest,
-};
+  loginUser,
+}
 
-export default connect(null, mapDispatchToProps)(Signin);
+export default connect(null, mapDispatchToProps)(Login)

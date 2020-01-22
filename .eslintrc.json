@@ -18,18 +18,16 @@
     "sinon": true
   },
   "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import"
-  ],
+  "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "react/jsx-filename-extension": 0,
     "array-bracket-spacing": 2,
+    "arrow-parens": 0,
     "arrow-body-style": 0,
     "block-scoped-var": 2,
     "brace-style": [2, "1tbs", { "allowSingleLine": true }],
     "comma-spacing": [2, { "before": false, "after": true }],
+    "comma-dangle": 0,
     "comma-style": [2, "last"],
     "complexity": 0,
     "consistent-return": 1,
@@ -43,8 +41,9 @@
     "func-names": 0,
     "func-style": 0,
     "generator-star-spacing": [2, "both"],
+    "global-require": 0,
     "guard-for-in": 0,
-    "handle-callback-err": [2, "^(err|error|anySpecificError)$" ],
+    "handle-callback-err": [2, "^(err|error|anySpecificError)$"],
     "import/prefer-default-export": 0,
     "indent": [2, 2, { "SwitchCase": 1 }],
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
@@ -187,9 +186,13 @@
     "react/sort-comp": 0,
     "react/jsx-wrap-multilines": 2,
     "semi-spacing": 0,
+    "semi": 0,
     "sort-vars": 0,
     "space-before-blocks": [2, "always"],
-    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+    "space-before-function-paren": [
+      2,
+      { "anonymous": "never", "named": "never" }
+    ],
     "space-in-parens": [2, "never"],
     "space-infix-ops": 2,
     "keyword-spacing": 2,

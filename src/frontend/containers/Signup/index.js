@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { signupRequest } from '../../actions';
+import { registerUser } from '../../actions'
 import {
   Wrapper,
   Container,
@@ -10,34 +10,28 @@ import {
   Input,
   Button,
   Register,
-  Option,
-  Line,
   StyledLink,
   BackButton,
-  GoogleButton,
-  TwitterButton,
-} from './styles';
+} from './styles'
 
-const Signup = (props) => {
+const Signup = props => {
   const [form, setForm] = React.useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     password: '',
-  });
+  })
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
-    });
-  };
+    })
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.signupRequest(form);
-    props.history.push('/');
-  };
+  const handleSubmit = event => {
+    event.preventDefault()
+    props.registerUser(form, '/signin')
+  }
 
   return (
     <Wrapper>
@@ -45,31 +39,14 @@ const Signup = (props) => {
         <BackButton />
       </StyledLink>
       <Container>
-        <Option>
-          <GoogleButton />
-          <span>Continue with Google</span>
-        </Option>
-        <Option>
-          <TwitterButton />
-          <span>Continue with Twitter</span>
-        </Option>
-        <Line>
-          <span>or</span>
-        </Line>
         <Form onSubmit={handleSubmit}>
           <Input
-            name="firstName"
+            name="name"
             type="text"
-            placeholder="First name"
-            value={form.firstName}
+            placeholder="Name"
+            value={form.name}
             onChange={handleChange}
-          />
-          <Input
-            name="lastName"
-            type="text"
-            placeholder="Last name"
-            value={form.lastName}
-            onChange={handleChange}
+            required
           />
           <Input
             name="email"
@@ -77,6 +54,7 @@ const Signup = (props) => {
             placeholder="Email address"
             value={form.email}
             onChange={handleChange}
+            required
           />
           <Input
             name="password"
@@ -84,6 +62,7 @@ const Signup = (props) => {
             placeholder="Create a password"
             value={form.password}
             onChange={handleChange}
+            required
           />
           <Button type="submit">Sing up</Button>
         </Form>
@@ -93,15 +72,15 @@ const Signup = (props) => {
         <a href="/login">Log in</a>
       </Register>
     </Wrapper>
-  );
-};
+  )
+}
 
 Signup.propTypes = {
-  signupRequest: PropTypes.func.isRequired,
-};
+  registerUser: PropTypes.func.isRequired,
+}
 
 const mapDispatchToProps = {
-  signupRequest,
-};
+  registerUser,
+}
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(null, mapDispatchToProps)(Signup)
