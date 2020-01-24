@@ -80,3 +80,29 @@ export function loginUser({ email, password }, redirectUrl) {
       .catch(error => handleError(error))
   }
 }
+
+export function setUserMovie({ movie }) {
+  const movieId = movie.id
+  return dispatch => {
+    axios({
+      url: 'user-movies',
+      method: 'post',
+      data: { movieId },
+    })
+      .then(() => {
+        return dispatch(setFavorite({ ...movie }))
+      })
+      .catch(error => dispatch(handleError(error)))
+  }
+}
+
+export function deleteUserMovie(movieId) {
+  return dispatch => {
+    axios({
+      url: `user-movies/${movieId}`,
+      method: 'delete',
+    })
+      .then(() => dispatch(deleteFavorite(movieId)))
+      .catch(error => dispatch(handleError(error)))
+  }
+}

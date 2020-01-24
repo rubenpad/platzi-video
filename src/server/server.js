@@ -87,6 +87,53 @@ app.post('/auth/sign-up', async (req, res, next) => {
   }
 })
 
+app.post('/user-movies', async (req, res, next) => {
+  try {
+    const { movieId } = req.body
+    const { token, id } = req.cookies
+    const userMovie = { userId: id, movieId }
+
+    const { data, status } = await axios({
+      url: `${config.apiUrl}/user-movies`,
+      headers: { Authorization: `Bearer ${token}` },
+      method: 'post',
+      data: userMovie,
+    })
+
+    if (status === 200 && data.exist === true) {
+      res.status(200).json(data.message)
+    }
+
+    if (status !== 201) {
+      return next(boom.badImplementation())
+    }
+
+    res.status(201).json(data)
+  } catch (error) {
+    next(error)
+  }
+})
+
+app.delete('/user-movies/:movieId', async (req, res, next) => {
+  try {
+    const { movieId } = req.params
+    const { token, id } = req.cookies
+    const { data, status } = await axios({
+      url: `${config.apiUrl}/user-movies/${movieId}?userId=${id}`,
+      headers: { Authorization: `Bearer ${token}` },
+      method: 'delete',
+    })
+
+    if (status !== 200) {
+      return next(boom.badImplementation())
+    }
+
+    res.status(200).json(data)
+  } catch (error) {
+    next(error)
+  }
+})
+
 app.get('*', main)
 
 app.listen(config.port, error => {

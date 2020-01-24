@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { setFavorite, deleteFavorite } from '../../actions';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setUserMovie, deleteUserMovie } from '../../actions'
 
 import {
   Item,
@@ -12,24 +12,27 @@ import {
   AddButton,
   PlayButton,
   CheckButton,
-} from './styles';
+} from './styles'
 
-const CarouselItem = (props) => {
-  const { isLibrary, id, title, cover, year, contentRating, duration } = props;
+const CarouselItem = props => {
+  const { isLibrary, id, title, cover, year, contentRating, duration } = props
+
   const handleSetFavorite = () => {
-    return props.setFavorite({
-      id,
-      title,
-      cover,
-      year,
-      contentRating,
-      duration,
-    });
-  };
+    return props.setUserMovie({
+      movie: {
+        id,
+        title,
+        cover,
+        year,
+        contentRating,
+        duration,
+      },
+    })
+  }
 
-  const handleDeleteFavorite = (itemId) => {
-    return props.deleteFavorite(itemId);
-  };
+  const handleDeleteFavorite = movieId => {
+    return props.deleteUserMovie(movieId)
+  }
 
   return (
     <Item>
@@ -49,8 +52,8 @@ const CarouselItem = (props) => {
         <p>{`${year} ${contentRating} ${duration}min`}</p>
       </Detail>
     </Item>
-  );
-};
+  )
+}
 
 CarouselItem.propTypes = {
   isLibrary: PropTypes.bool,
@@ -60,11 +63,11 @@ CarouselItem.propTypes = {
   year: PropTypes.number.isRequired,
   contentRating: PropTypes.string.isRequired,
   duration: PropTypes.number.isRequired,
-};
+}
 
 const mapDispatchToProps = {
-  setFavorite,
-  deleteFavorite,
-};
+  setUserMovie,
+  deleteUserMovie,
+}
 
-export default connect(null, mapDispatchToProps)(CarouselItem);
+export default connect(null, mapDispatchToProps)(CarouselItem)

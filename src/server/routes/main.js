@@ -1,5 +1,3 @@
-import debug from 'debug'
-import chalk from 'chalk'
 import React from 'react'
 import axios from 'axios'
 import { renderToString } from 'react-dom/server'
@@ -15,18 +13,39 @@ import { config } from '../config'
 
 async function main(req, res, next) {
   const sheet = new ServerStyleSheet()
+  const isAuth =
+    Object.keys(req.cookies).length > 0
+      ? req.cookies.token.length > 0 && req.cookies.id.length > 0
+      : false
+
   try {
     let initialState = {}
-    const { token, id, name, email } = req.cookies
-    const isAuth = token.length > 0 && id.length > 0
     if (isAuth) {
-      const user = { id, name, email }
+      const { token, id, email, name } = req.cookies
+      const user = { id, email, name }
 
       const moviesResponse = await axios({
         url: `${config.apiUrl}/movies`,
         headers: { Authorization: `Bearer ${token}` },
         method: 'get',
       })
+
+      const userMoviesResponse = await axios({
+        url: `${config.apiUrl}/user-movies?userId=${id}`,
+        headers: { Authorization: `Bearer ${token}` },
+        method: 'get',
+      })
+
+      const library = userMoviesResponse.data.data
+        .map(userMovie => {
+          return moviesResponse.data.data.filter(movie => {
+            if (movie.id === userMovie.movieId) {
+              const userMovieId = userMovie.id
+              return { ...movie, userMovieId }
+            }
+          })
+        })
+        .flat()
 
       const trends = moviesResponse.data.data.filter(
         movie => movie.contentRating === 'PG'
@@ -38,23 +57,20 @@ async function main(req, res, next) {
 
       initialState = {
         user,
+        library,
         trends,
         originals,
-        playing: {},
         search: [],
-        library: [],
       }
     } else {
       initialState = {
         user: {},
-        playing: {},
         search: [],
         library: [],
         trends: [],
         originals: [],
       }
     }
-
     const store = createStore(reducer, initialState)
     const body = renderToString(
       sheet.collectStyles(
