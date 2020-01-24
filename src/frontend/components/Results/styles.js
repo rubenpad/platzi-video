@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  width: 480px;
+  width: 100%;
   padding-top: 10px;
   background: #fff;
   position: absolute;
-  top: 175px;
+  top: 200px;
   z-index: 1;
 `;
 

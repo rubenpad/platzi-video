@@ -2,23 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { loginUser } from '../../actions'
-import useInputValue from '../../hooks/useInputValue'
-import {
-  Wrapper,
-  Container,
-  Form,
-  Input,
-  Button,
-  CheckBox,
-  Register,
-  StyledLink,
-  BackButton,
-} from './styles'
+import { loginUser } from '../actions'
+import Input from '../components/Input'
+import Form from '../components/Form'
+import { Div, Button, RegisterBox } from './styles'
 
 const Login = props => {
   const [form, setForm] = React.useState({ email: '' })
-  const remember = useInputValue('checked')
 
   const handleChange = event => {
     setForm({
@@ -33,11 +23,8 @@ const Login = props => {
   }
 
   return (
-    <Wrapper>
-      <StyledLink to="/">
-        <BackButton />
-      </StyledLink>
-      <Container>
+    <>
+      <Div>
         <Form onSubmit={handleSubmit}>
           <Input
             name="email"
@@ -45,33 +32,23 @@ const Login = props => {
             placeholder="Email Address"
             value={form.email}
             onChange={handleChange}
-            required
+            required={true}
           />
           <Input
             name="password"
             type="password"
             placeholder="Password"
             onChange={handleChange}
-            required
+            required={true}
           />
-          <CheckBox>
-            <input
-              type="checkbox"
-              name="remember"
-              value={remember.value}
-              onChange={remember.onChange}
-            />
-            <span>Remember me</span>
-            <a href="/reset">Forgot password?</a>
-          </CheckBox>
-          <Button type="submit">Log In</Button>
+          <Button type="submit">Login</Button>
         </Form>
-      </Container>
-      <Register>
-        <span>Don&#39;t have an account</span>
-        <a href="/signup">Sing up</a>
-      </Register>
-    </Wrapper>
+        <RegisterBox>
+          <span>Don&#39;t have an account</span>
+          <a href="/signup">Sing up</a>
+        </RegisterBox>
+      </Div>
+    </>
   )
 }
 

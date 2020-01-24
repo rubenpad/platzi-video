@@ -1,13 +1,4 @@
-import styled from 'styled-components';
-import { FaUserAlt, FaArrowLeft } from 'react-icons/fa';
-
-export const UserIcon = styled(FaUserAlt)`
-  margin-right: 5px;
-`;
-
-export const ExitIcon = styled(FaArrowLeft)`
-  margin-right: 5px;
-`;
+import styled from 'styled-components'
 
 export const Menu = styled.ul`
   height: 90px;
@@ -18,7 +9,7 @@ export const Menu = styled.ul`
   list-style: none;
   position: absolute;
   top: 38px;
-  left: -85px;
+  left: -30px;
   font-size: 1.6rem;
 
   li {
@@ -28,23 +19,18 @@ export const Menu = styled.ul`
     display: inline-flex;
     align-items: center;
     margin-bottom: 10px;
-
-    img {
-      width: 20px;
-      margin-right: 5px;
-    }
     &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
   }
-`;
+`
 
 export const Image = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-`;
+`
 
 export const Wrapper = styled.div`
   width: 40px;
@@ -60,4 +46,4 @@ export const Wrapper = styled.div`
       display: block;
     }
   }
-`;
+`

@@ -14,9 +14,7 @@ function reducer(state, action) {
     case 'DELETE_FAVORITE':
       return {
         ...state,
-        library: state.library.filter(
-          movie => movie.id !== action.payload
-        ),
+        library: state.library.filter(movie => movie.id !== action.payload),
       }
 
     case 'LOGIN_REQUEST':
@@ -38,12 +36,13 @@ function reducer(state, action) {
       }
 
     case 'GET_VIDEO':
+      console.log(state)
       return {
         ...state,
         playing:
           state.trends
             .concat(state.originals)
-            .find(item => item.id === Number(action.payload)) || [],
+            .find(item => item.id === Number(action.payload)) || {},
       }
 
     default:

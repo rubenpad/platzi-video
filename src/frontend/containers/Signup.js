@@ -2,17 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { registerUser } from '../../actions'
-import {
-  Wrapper,
-  Container,
-  Form,
-  Input,
-  Button,
-  Register,
-  StyledLink,
-  BackButton,
-} from './styles'
+import { registerUser } from '../actions'
+import Form from '../components/Form'
+import Input from '../components/Input'
+import { Div, Button, RegisterBox } from './styles'
 
 const Signup = props => {
   const [form, setForm] = React.useState({
@@ -34,11 +27,8 @@ const Signup = props => {
   }
 
   return (
-    <Wrapper>
-      <StyledLink to="/">
-        <BackButton />
-      </StyledLink>
-      <Container>
+    <>
+      <Div>
         <Form onSubmit={handleSubmit}>
           <Input
             name="name"
@@ -66,12 +56,12 @@ const Signup = props => {
           />
           <Button type="submit">Sing up</Button>
         </Form>
-      </Container>
-      <Register>
-        <span>Already have an account?</span>
-        <a href="/login">Log in</a>
-      </Register>
-    </Wrapper>
+        <RegisterBox>
+          <span>Already have an account?</span>
+          <a href="/login">Log in</a>
+        </RegisterBox>
+      </Div>
+    </>
   )
 }
 

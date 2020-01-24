@@ -4,29 +4,20 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import Avatar from '../Avatar'
-import logo from '../../assets/logo-platzi-video.png'
-import { Wrapper, Logo, StyledLink, Links } from './styles'
+import Logo from '../Logo'
+import { StyledHeader } from './styles'
 
 const Header = props => {
   const { user } = props
   const hasUser = Object.keys(user).length > 0
 
   return (
-    <Wrapper>
+    <StyledHeader>
       <Link to="/">
-        <Logo src={logo} alt="PlatziVideo Logo" />
+        <Logo />
       </Link>
-      {hasUser ? (
-        <Avatar email={user.email} />
-      ) : (
-        <Links>
-          <StyledLink to="/login" main="true">
-            Sign in
-          </StyledLink>
-          <StyledLink to="/signup">Sign up</StyledLink>
-        </Links>
-      )}
-    </Wrapper>
+      {hasUser ? <Avatar email={user.email} /> : ''}
+    </StyledHeader>
   )
 }
 

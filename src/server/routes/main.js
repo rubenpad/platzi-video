@@ -60,11 +60,13 @@ async function main(req, res, next) {
         library,
         trends,
         originals,
+        playing: {},
         search: [],
       }
     } else {
       initialState = {
         user: {},
+        playing: {},
         search: [],
         library: [],
         trends: [],
