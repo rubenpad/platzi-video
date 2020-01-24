@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 import { FaPlus, FaPlay, FaCheck } from 'react-icons/fa';
 
-const width = 250;
-const height = width / (16 / 9);
-
 export const Item = styled.div`
-  width: ${width}px;
-  height: ${height}px;
+  width: 200px;
+  height: 250px;
   margin-right: 10px;
   display: inline-block;
-  border-radius: 3px;
+  border-radius: 10px;
   position: relative;
   cursor: pointer;
   font-size: 20px;
@@ -19,8 +16,8 @@ export const Item = styled.div`
 `;
 
 export const Cover = styled.img`
-  width: ${width}px;
-  height: ${height}px;
+  width: 200px;
+  height: 250px;
   object-fit: cover;
 `;
 

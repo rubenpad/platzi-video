@@ -1,21 +1,13 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FaArrowLeft, FaGoogle, FaTwitter } from 'react-icons/fa';
-import { colors } from '../../GlobalStyle';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import { FaArrowLeft } from 'react-icons/fa'
+import { colors } from '../../GlobalStyle'
 
 export const BackButton = styled(FaArrowLeft)`
   width: 28px;
   height: 28px;
   color: #000;
-`;
-
-export const GoogleButton = styled(FaGoogle)`
-  margin-right: 8px;
-`;
-
-export const TwitterButton = styled(FaTwitter)`
-  margin-right: 8px;
-`;
+`
 
 export const StyledLink = styled(Link)`
   position: absolute;
@@ -28,82 +20,22 @@ export const StyledLink = styled(Link)`
       opacity: 0.9;
     }
   }
-`;
-
-export const Wrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`;
+`
 
 export const Container = styled.div`
-  width: 400px;
-  height: 400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
   padding: 20px 30px;
-  border: 1px solid ${colors.light};
-  border-radius: 3px;
-  background: ${colors.light};
   position: relative;
-`;
-
-export const Line = styled.div`
-  text-align: center;
-  position: relative;
-  margin-bottom: 16px;
-  font-size: 1.4rem;
-
-  span::before {
-    width: 45%;
-    height: 1px;
-    content: '';
-    position: absolute;
-    background-color: ${colors.semi};
-    left: 0;
-    top: 50%;
-  }
-
-  span::after {
-    width: 45%;
-    height: 1px;
-    content: '';
-    position: absolute;
-    background-color: ${colors.semi};
-    right: 0;
-    top: 50%;
-  }
-`;
-
-export const Option = styled.div`
-  width: 100%;
-  height: 38px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid ${colors.semi};
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 16px;
-
-  img {
-    width: 24px;
-    margin-right: 10px;
-  }
-
-  &:hover {
-    background: ${colors.semi};
-  }
-`;
+`
 
 export const Form = styled.form`
   width: 100%;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const Input = styled.input`
   width: 100%;
@@ -111,10 +43,10 @@ export const Input = styled.input`
   margin-bottom: 14px;
   padding-left: 14px;
   background: transparent;
-  border: 1px solid ${colors.semi};
+  border: 1px solid ${colors.white};
   border-radius: 3px;
   font-size: 16px;
-`;
+`
 
 export const CheckBox = styled.div`
   margin-bottom: 16px;
@@ -140,15 +72,15 @@ export const CheckBox = styled.div`
       text-decoration: underline;
     }
   }
-`;
+`
 
 export const Button = styled.button`
   width: 100%;
   height: 48px;
   display: inline-block;
   margin-bottom: 10px;
-  background: ${colors.secondary};
-  color: ${colors.light};
+  background: ${colors.greenCool};
+  color: ${colors.white};
   font-size: 16px;
   border-radius: 3px;
   cursor: pointer;
@@ -157,18 +89,18 @@ export const Button = styled.button`
   &:hover {
     opacity: 0.9;
   }
-`;
+`
 
 export const Register = styled.div`
   margin-top: 20px;
   font-size: 16px;
   a {
     margin-left: 20px;
-    color: ${colors.primary};
+    color: ${colors.lila};
     font-weight: bold;
 
     &:hover {
       text-decoration: underline;
     }
   }
-`;
+`

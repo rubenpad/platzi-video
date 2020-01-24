@@ -4,17 +4,7 @@ import { connect } from 'react-redux'
 
 import { loginUser } from '../../actions'
 import useInputValue from '../../hooks/useInputValue'
-import {
-  Wrapper,
-  Container,
-  Form,
-  Input,
-  Button,
-  CheckBox,
-  Register,
-  StyledLink,
-  BackButton,
-} from './styles'
+import { Container, Form, Input, Button, CheckBox, Register } from './styles'
 
 const Login = props => {
   const [form, setForm] = React.useState({ email: '' })
@@ -33,10 +23,7 @@ const Login = props => {
   }
 
   return (
-    <Wrapper>
-      <StyledLink to="/">
-        <BackButton />
-      </StyledLink>
+    <>
       <Container>
         <Form onSubmit={handleSubmit}>
           <Input
@@ -66,12 +53,12 @@ const Login = props => {
           </CheckBox>
           <Button type="submit">Log In</Button>
         </Form>
+        <Register>
+          <span>Don&#39;t have an account</span>
+          <a href="/signup">Sing up</a>
+        </Register>
       </Container>
-      <Register>
-        <span>Don&#39;t have an account</span>
-        <a href="/signup">Sing up</a>
-      </Register>
-    </Wrapper>
+    </>
   )
 }
 

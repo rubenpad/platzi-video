@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Header from '../../components/Header'
 import Search from '../../components/Search'
 import Category from '../../components/Category'
 import Carousel from '../../components/Carousel'
@@ -11,7 +10,6 @@ import CarouselItem from '../../components/CarouselItem'
 const Home = ({ library, trends, originals }) => {
   return (
     <>
-      <Header />
       <Search />
       {library.length > 0 && (
         <Category title="Library">

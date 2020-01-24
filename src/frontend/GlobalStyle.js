@@ -1,27 +1,28 @@
-import { css, createGlobalStyle } from 'styled-components';
+import { css, createGlobalStyle } from 'styled-components'
 
 const colors = {
-  primary: '#8f57fd',
-  secondary: '#21c08d',
-  light: '#ffffff',
-  semi: '#cccccc',
-};
+  lila: '#8f57fd',
+  greenCool: '#21c08d',
+  white: '#eeeeee',
+  gray: '#cccccc',
+  black: '#222222',
+}
 
 const size = {
   small: 320,
   medium: 425,
   mediumL: 768,
   large: 1024,
-};
+}
 
 const above = Object.keys(size).reduce((acc, label) => {
   acc[label] = (...args) => css`
     @media (min-width: ${size[label]}px) {
       ${css(...args)}
     }
-  `;
-  return acc;
-}, {});
+  `
+  return acc
+}, {})
 
 const GlobalStyle = createGlobalStyle`
 
@@ -40,10 +41,6 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     font-family: 'Muli', sans-serif;
     font-size: 10px;
-  }
-
-  body {
-
   }
 
   ul { 
@@ -69,6 +66,7 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     outline: 0;
   }
-`;
 
-export { colors, above, GlobalStyle };
+`
+
+export { colors, above, GlobalStyle }
