@@ -10,7 +10,10 @@
     "build": "NODE_ENV=production webpack",
     "start:prod": "node src/server/index.js",
     "start:dev": "NODE_ENV=development webpack && node src/server/index.js",
-    "dev": "DEBUG=app:* NODE_ENV=development nodemon src/server/index.js --exact babel-node"
+    "dev": "DEBUG=app:* NODE_ENV=development nodemon src/server/index.js --exact babel-node",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@babel/register": "7.7.4",
@@ -21,10 +24,12 @@
     "cookie-parser": "^1.4.4",
     "debug": "4.1.1",
     "dotenv": "8.2.0",
+    "enzyme": "^3.11.0",
     "express": "4.17.1",
     "helmet": "^3.21.2",
     "history": "4.10.1",
     "image-webpack-loader": "6.0.0",
+    "jest": "^25.1.0",
     "md5": "2.2.1",
     "nodemon": "2.0.2",
     "passport": "^0.4.1",
@@ -53,11 +58,13 @@
     "@babel/preset-react": "7.7.4",
     "@babel/runtime": "7.7.4",
     "babel-eslint": "10.0.3",
+    "babel-jest": "^25.1.0",
     "babel-loader": "8.0.6",
     "babel-plugin-styled-components": "1.10.6",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "3.0.1",
     "core-js": "3",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "6.7.2",
     "eslint-config-airbnb": "18.0.1",
     "eslint-loader": "3.0.3",
@@ -67,9 +74,15 @@
     "eslint-plugin-react-hooks": "1.7.0",
     "file-loader": "5.0.2",
     "react-hot-loader": "4.12.18",
+    "react-test-renderer": "^16.12.0",
     "terser-webpack-plugin": "2.3.1",
     "webpack-cli": "3.3.10",
     "webpack-dev-server": "3.9.0",
     "webpack-manifest-plugin": "2.2.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpge|png|gif)$": "<rootDir>/src/frontend/__mocks__/fileMock.js"
+    }
   }
 }

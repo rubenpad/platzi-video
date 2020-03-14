@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sumbit form on signup test Match Snapshot 1`] = `
+<div
+  className="sc-bxivhb ccFUwH"
+>
+  <form
+    className="sc-bdVaJa eFjEm"
+    onSubmit={[Function]}
+  >
+    <input
+      className="sc-bwzfXH gUqduo"
+      name="name"
+      onChange={[Function]}
+      placeholder="Name"
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      className="sc-bwzfXH gUqduo"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email address"
+      required={true}
+      type="email"
+      value=""
+    />
+    <input
+      className="sc-bwzfXH gUqduo"
+      name="password"
+      onChange={[Function]}
+      placeholder="Create a password"
+      required={true}
+      type="password"
+      value=""
+    />
+    <button
+      className="sc-ifAKCX inDuyN"
+      type="submit"
+    >
+      Sing up
+    </button>
+  </form>
+  <div
+    className="sc-EHOje cHxLlX"
+  >
+    <span>
+      Already have an account?
+    </span>
+    <a
+      href="/login"
+    >
+      Log in
+    </a>
+  </div>
+</div>
+`;

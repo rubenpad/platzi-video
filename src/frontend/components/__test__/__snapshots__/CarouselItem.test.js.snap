@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel component test Match Snapshot 1`] = `
+<div
+  className="sc-bdVaJa cFlflQ"
+>
+  <img
+    alt="Video Cover"
+    className="sc-bwzfXH gelAAY"
+  />
+  <div
+    className="sc-htpNat gUusgJ"
+  >
+    <div
+      className="sc-bxivhb gfqwgb"
+    >
+      <a
+        href="/player/undefined"
+        onClick={[Function]}
+      >
+        <svg
+          className="sc-EHOje iIgAP"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 448 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
+          />
+        </svg>
+      </a>
+      <svg
+        className="sc-ifAKCX bOXfnb"
+        fill="currentColor"
+        height="1em"
+        onClick={[Function]}
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 448 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        />
+      </svg>
+    </div>
+    <h3 />
+    <p>
+      undefined undefined undefinedmin
+    </p>
+  </div>
+</div>
+`;
